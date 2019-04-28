@@ -1,0 +1,18 @@
+<view class="status-bar">
+  <view style="height:{{g2.height}}px;{{bgone}};">
+  </view>
+  <view style='{{bgtwo}};'>
+  <block wx:if="{{canGoBack}}">
+  <view bindtap='goback' style='font-size:16px;line-height:{{g2.height2}}px;margin-left:15rpx;color:{{colorO}};padding-right:15rpx;padding-left:15rpx;' class='iconfont icon-fanhui abs'></view>
+  </block>
+  <block wx:if="{{canGoIndex}}">
+  <view bindtap='goIndex' style='font-size:18px;line-height:{{g2.height2}}px;margin-left:77rpx;padding-left:15rpx;padding-right:15rpx;color:{{colorO}};' class='iconfont icon-shouye abs'></view>
+  </block>
+  <view style='line-height:{{g2.height2}}px;font-size:16px;text-align:center;color:{{colorO}};'>{{title}}</view>
+  </view>
+</view>
+
+<view wx:if='{{isPadding}}' style='padding-top:{{g2.height+g2.height2}}px;'></view>
+<view wx:if='{{isPaddingTwo}}' style='padding-top:{{g2.height}}px;'></view>
+
+

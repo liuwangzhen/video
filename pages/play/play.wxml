@@ -1,0 +1,47 @@
+<wxs module='filter' src='../../utils/myWxs.wxs' />
+<!-- 根据滚动的位置判断是否给顶部添加背景色 -->
+<block wx:if="{{scrollTop<h2-50}}">
+  <header canGoIndex="true" colorO="#fff" bgtwo="background:none;" isPaddingTwo="true" title="侠"></header>
+</block>
+<block wx:else>
+  <header canGoIndex="true" colorO="#fff" isPaddingTwo="true" title="侠"></header>
+</block>
+<!-- 视频播放 -->
+<view>
+  <video autoplay='true' style='height:{{h2-50}}px' class='video' src='{{content.video}}'></video>
+</view>
+<view>
+<!-- 内容 -->
+  <text id='cont' style='padding-bottom:20rpx;' class='ml30 b f32 w690 le3 blo'>{{content.text}}</text>
+  <view class='r1 lh100 fp16 h100'>
+    <view class='r1 abs ml30'>
+      <view style='font-size:20px;' class='iconfont icon-bofang'>
+      </view>
+      <view class='ml10'>{{content.playNumber}}</view>
+    </view>
+   <!-- 点赞 -->
+    <view style='margin-left:210rpx;' class='r1 abs'>
+      <view wx:if="{{isZan==false}}" data-id='{{content.id}}' bindtap='ifZan' style='font-size:18px;' class='iconfont icon-dianzan1'></view>
+      <view wx:else data-id='{{content.id}}' bindtap='ifZan' style='font-size:20px;' class='iconfont icon-dianzan'></view>
+      <view class='fp16 ml10'>{{content.zan}}</view>
+    </view>
+<!-- 收藏  -->
+    <view style='margin-left:390rpx;' class='r1 abs'>
+      <view data-id='{{content.id}}' bindtap='ifcollect' wx:if="{{isCol==false}}" style='font-size:26px;' class='iconfont icon-like-line'></view>
+      <view data-id='{{content.id}}' bindtap='ifcollect' wx:else style='font-size:26px;' class='iconfont icon-xinheart118'></view>
+      <view class='fp16 ml10'>{{content.collection}}</view>
+    </view>
+<!-- 转发 -->
+    <button style='margin-left:570rpx;' open-type='share' class='r1 btn2 abs fp16 c000'>
+      <view class='iconfont icon-zhuanfa'>
+      </view>
+      <view class='ml10'>{{content.share}}</view>
+    </button>
+  </view>
+</view>
+<!-- 推荐 -->
+<view class='footer'>
+  <view class='cen lh50 f28 cddd'>-更多推荐欣赏-</view>
+  <include src="recomend.wxml" />
+</view>
+<include src="bottom.wxml" />

@@ -1,0 +1,16 @@
+<view class="r1 mt30 ml30">
+  <view class='f32 b le3'>最近搜索</view>
+  <view bindtap='delete' style='line-height:42rpx;font-size:32rpx;' class='abs r30 iconfont icon-trash'></view>
+</view>
+<view class='r1 w720 ffw'>
+  <view data-val='{{item}}' bindtap='getSearch'  class='btn-sear ml30 mt20 le2 f30' wx:for='{{mySearch}}' wx:key="{{index}}">
+   {{item}}
+  </view>
+</view>
+<view class='c-line mt30 bgddd'></view>
+<view class='ml30 mt50 b f32 le3'>热门搜索</view>
+<view class='r1 w720 ffw'>
+  <view data-val='{{item}}' bindtap='getSearch' class='btn-sear ml30 mt20 le2 f30' wx:for='{{hotSearch}}' wx:key="{{index}}">
+   {{item}}
+  </view>
+</view>

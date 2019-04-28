@@ -1,0 +1,64 @@
+var Two = {
+  // 查找字符
+  LimitNumbersadf: function(txt, val) {
+    var str = txt;
+    var val = val
+    var d = val.indexOf(str)
+    return d;
+  },
+  // 转换日期
+  getDate: function(d) {
+    var st = d
+    var datetime = getDate(st * 1000);
+    var year = datetime.getFullYear();
+    var month = datetime.getMonth() + 1;
+    var hours = datetime.getHours();
+    var minutes = datetime.getMinutes();
+    if (hours <= 9) {
+      hours = "0" + hours;
+    }
+    if (minutes <= 9) {
+      minutes = "0" + minutes;
+    }
+    if (month <= 9) {
+      month = "0" + month;
+    }
+    var date = datetime.getDate();
+    if (date <= 9) {
+      date = "0" + date;
+    }
+    var dateformat = year + "-" + month + "-" + date + " " + hours + ":" + minutes;
+    return dateformat
+  },
+  s_to_hs:function(s) {
+    //计算分钟
+    //算法：将秒数除以60，然后下舍入，既得到分钟数
+    var h;
+    h = Math.floor(s / 60);
+    //计算秒
+    //算法：取得秒%60的余数，既得到秒数
+    s = s % 60;
+    //将变量转换为字符串
+    h += '';
+    s += '';
+    //如果只有一位数，前面增加一个0
+    h = (h.length == 1) ? '0' + h : h;
+    s = (s.length == 1) ? '0' + s : s;
+    return h + ':' + s;
+  },
+  // 去字符串
+  LimitStr:function(str,num){
+    if(str.length>num){
+      var newStr=str.substring(0,num)+'...'
+      return newStr
+    }else{
+      return str
+    }
+  },
+}
+module.exports = {
+  checkStr: Two.LimitNumbersadf,
+  getDate: Two.getDate,
+  stohs: Two.s_to_hs,
+  LimitStr:Two.LimitStr
+};

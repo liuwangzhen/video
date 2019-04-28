@@ -1,0 +1,62 @@
+<!-- 引用模块 -->
+<wxs module='filter' src='../../utils/myWxs.wxs' />
+<!-- 头部 -->
+<view class="status-bar">
+  <view style="height:{{g2.height}}px">
+  </view>
+  <navigator hover-class='none' url="../search/search" style='font-size:20px;line-height:{{g2.height2}}px;left:15px;' class='iconfont icon-xiazai17 abs'></navigator>
+  <view class='cen title2' style='line-height:{{g2.height2}}px;font-size:16px'>海草日记</view>
+</view>
+<!-- 滑动菜单 -->
+<view style='top:{{g2.height+g2.height2}}px;height:100rpx;z-index:8;' class='fixed'>
+  <scroll-view scroll-x="true" class='recommend'>
+    <view  class='r1 cdc'>
+      <view wx:for="{{titles}}" data-title="{{item.title}}" wx:key="{{item.id}}" data-idx='{{index}}' data-id='{{item.id}}' bindtap='change' class="col f32 mt20 {{index == 0 ? '' : 'ml50'}}">
+        <view class="{{swiperIndex == index ? 'active' : 'c8a'}}">
+          {{item.title}}
+        </view>
+        <view class="{{swiperIndex == index ? 'lineT' : ''}}"></view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='line'></view>
+</view>
+<!-- 列表 -->
+<view style='padding-top:{{g2.height+g2.height2}}px;margin-top:100rpx;padding-bottom:100rpx;'>
+<view name='mytemp'>
+  <view class='mt40' data-id="{{item.id}}" wx:for="{{tables}}" wx:key="{{item.index}}">
+    <view class='ml40 w670'>
+      <navigator hover-class='none' url='../play/play?id={{item.id}}' class='play abs cen'>
+        <view style='color:#fff;font-size:80rpx;line-height:120rpx;' class='iconfont icon-bofang'></view>
+      </navigator>
+      <!-- 渐变背景 -->
+      <view class='abs background'></view>
+      <view class='abs background2'></view>
+      <view class='abs cfff ml10 f32 lh80 le3 w650'>{{filter.LimitStr(item.text,16)}}</view>
+      <view style='margin-top:370rpx;' class='abs lh80 f28 ml30 cfff le2'>{{item.playNumber}}次播放</view>
+      <view style='margin-top:370rpx;' class='abs lh80 f28 cfff r70'>{{filter.stohs(item.duration)}}</view>
+      <image mode='aspectFill' src='{{item.poster}}' class='img'></image>
+      <view class='r1 mt10'>
+        <view class='r1 abs'>
+        <view class="abs f28 cred {{curItem == index ?'animation2':'hidden'}}">+1</view>
+        <view data-id='{{item.id}}' data-idx="{{index}}" data-iscol='{{true}}' bindtap='ifCollect' wx:if="{{item.isCol==true}}" style='color:red;font-size:60rpx;'  class="iconfont icon-xinheart118 {{curItem == index ?'animation':''}}"></view>
+        <view data-idx="{{index}}" data-id='{{item.id}}' data-isCol='{{false}}' bindtap='ifCollect' wx:else style='font-size:60rpx;' class='iconfont icon-like-line'></view>
+        <view class='ml60 lh60 f28 abs'>{{item.collection}}</view>
+        </view>
+        <!-- //zan -->
+        <view style="left:240rpx;" class="abs r1">
+          <view data-id='{{item.id}}' data-index='{{index}}' bindtap='ifZan' wx:if="{{item.isZan==true}}" style='font-size:52rpx;color:red;' class='iconfont icon-dianzan'></view>
+          <view data-id='{{item.id}}' data-index='{{index}}' bindtap='ifZan' wx:else style='font-size:44rpx;margin-top:8rpx;' class='iconfont icon-dianzan1'></view>
+          <view class='ml10 lh60 f28'>{{item.zan}}</view>
+        </view>
+        <!-- fenxiang -->
+        <button data-idx="{{index}}" data-share='{{item.share}}' data-src="{{item.poster}}" data-title="{{item.text}}" data-id="{{item.id}}" open-type='share' class='btn r1 abs r40'>
+          <view style='color:#fff;font-size:50rpx;' class='iconfont icon-weixin'></view>
+          <view class='f28 cfff ml20'>分享</view>
+        </button>
+      </view>
+    </view>
+    <view style='margin-top:86rpx;' class='line2'></view>
+  </view>
+</view>
+</view>

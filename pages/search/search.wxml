@@ -1,0 +1,57 @@
+<!-- 引用模块和组件 -->
+<wxs module="Twos" src="../../utils/myWxs.wxs" />
+<header isPadding='true' title="搜索"></header>
+<!-- 搜索框 -->
+<view class='fixed bgfff z9'>
+  <view class='r1 ml50 mt30'>
+    <input maxlength='8' bindinput='iptblur' placeholder-class='ipt-p' class='ipt f30' value="{{val}}" placeholder='请输入解关键字'></input>
+    <view class='btn' data-val='{{val}}' bindtap='getSearch'>搜索</view>
+  </view>
+  <view wx:if="{{val!=''}}" class='line mt30'></view>
+</view>
+<!-- 主体 -->
+<view class='body-s'>
+<!-- 判断页面属性，是列表还是推荐搜索 -->
+  <block wx:if="{{val==''||isList==false}}">
+    <include src='recent.wxml' />
+  </block>
+  <block wx:else>
+  <!-- 判断搜索列表加载 -->
+    <block wx:if="{{isLoading==true}}">
+      <view style='margin-top:{{(system.windowHeight-74-h2-system.statusBarHeight-240)/2}}px' class='cen abs w100p'>
+        <image class='svg' src='../../images/loading.svg'></image>
+      </view>
+    </block>
+    <block wx:else>
+    <!-- 列表 -->
+      <block wx:if="{{list.length>0}}">
+        <navigator wx:for-item="items" hover-class='none' url='../play/play?id={{items.id}}' class='w690' wx:for="{{list}}" wx:key="{{items.id}}">
+          <view class='r1 ml30'>
+            <view class='col'>
+              <image mode='aspectFill' class='mt30 img-left' src='{{items.poster}}'></image>
+              <view class='abs background'></view>
+              <view style='margin-top:165rpx' class='abs cfff ml20 f28 lh80 le3'>{{items.playNumber}}人播放</view>
+            </view>
+            <view class='col mt30 ml30'>
+              <view class='itext f32 le3 w360'>
+                <block wx:for="{{Twos.LimitStr(items.text,37)}}" wx:key="{{index}}">
+                  <text class="cred" wx:if='{{Twos.checkStr(item,searchVal)!=-1}}'>{{item}}</text>
+                  <text wx:else>{{item}}</text>
+                </block>
+              </view>
+              <view class='itime f28 cddd w360'>{{Twos.getDate(items.created_at)}}</view>
+            </view>
+          </view>
+          <view class='lines mt30 ml30'></view>
+        </navigator>
+      </block>
+      <!-- 列表为空时 -->
+      <block wx:else>
+        <view style='margin-top:{{(system.windowHeight-74-h2-system.statusBarHeight-240)/2}}px' class='cen abs w100p'>
+          <image class='col-img' src='../../images/cat.png'></image>
+          <view style='font-family:KaiTi' class='le3 f28 cen b'>主人，换个关键词试试吧。</view>
+        </view>
+      </block>
+    </block>
+  </block>
+</view>

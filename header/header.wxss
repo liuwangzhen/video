@@ -1,0 +1,11 @@
+@import '../commons/iconfont.wxss';
+.status-bar{
+ 
+ position: fixed;
+ top: 0;
+ width: 750rpx;
+ z-index: 999;
+ }
+ .abs{
+   position: absolute;
+ }

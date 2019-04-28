@@ -1,0 +1,147 @@
+.video {
+  width: 750rpx;
+}
+
+/* bottom */
+.checklist {
+  width: 750rpx;
+  bottom: 0px;
+  /* height: 50px; */
+}
+
+.action {
+  animation: myfirst 1s;
+  height: 0px;
+}
+
+.action2 {
+  animation: myfirst2 1s;
+  height: 50px;
+}
+
+.ah50 {
+  height: 50px;
+}
+
+.btn {
+  line-height: 30px;
+  background-color: #50b674;
+  
+  border-radius: 20px;
+  animation: myani 2s infinite;
+}
+.animation{
+  animation: weixin-ani 2s infinite;
+}
+.animation2{
+  animation: fenxiang-ani 2s infinite;
+}
+@keyframes fenxiang-ani{
+  0% {
+    font-size:14px;
+  }
+  50%{
+    font-size: 7px;
+  }
+   100% {
+    font-size:14px;
+  }
+}
+@keyframes weixin-ani{
+  0% {
+    font-size:25px;
+  }
+  50%{
+    font-size:12.5px;
+  }
+  100% {
+    font-size:25px;
+  }
+}
+@keyframes myani{
+  0% {
+    line-height: 30px;
+    margin-top: 10px;
+    right: 40rpx;
+  }
+  50%{
+    line-height: 20px;
+    margin-top: 15px;
+    right: 60rpx;
+  }
+  100% {
+    line-height: 30px;
+    margin-top: 10px;
+    right: 40rpx;
+  }
+}
+@keyframes myfirst {
+  from {
+    height: 50px;
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+@keyframes myfirst2 {
+  from {
+    height: 0px;
+  }
+
+  to {
+    height: 50px;
+  }
+}
+
+.btn2::after {
+  border: none;
+}
+
+.btn2 {
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  line-height: 100rpx;
+}
+
+.footer {
+  width: 750rpx;
+  background-color: #f5f6f8;
+}
+/* 推荐部分样式 */
+/* recomend */
+
+.img-pos {
+  width: 330rpx;
+  height: 500rpx;
+}
+
+.background {
+  background: linear-gradient(rgba(8, 0, 0, 0.8), rgba(8, 0, 0, 0.07));
+  width: 330rpx;
+  height: 80rpx;
+}
+.background2 {
+  background: linear-gradient(rgba(8, 0, 0, 0.07), rgba(8, 0, 0, 0.8));
+  width: 330rpx;
+  height: 80rpx;
+}
+
+.play {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #000;
+  opacity: 0.6;
+  margin-left: 125rpx;
+  margin-top: 210rpx;
+}
+.play2
+{
+  border-radius: 50%;
+  
+  margin-left: 140rpx;
+  margin-top: 210rpx;
+}

@@ -1,0 +1,5 @@
+/* pages/upload/upload.wxss */
+.txt{
+  width: 690rpx;
+  margin-left: 30rpx;
+}

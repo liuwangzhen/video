@@ -1,0 +1,26 @@
+<!-- 引用模块和组件 -->
+<wxs module="filter" src="../../utils/myWxs.wxs" />
+<header isPadding='true' title="我的收藏"></header>
+<!-- 加载时的图片 -->
+<view class='cen' wx:if="{{isLoading==true}}">
+   <image style='margin-top:{{(system.windowHeight-100-h2-system.statusBarHeight)/2}}px' class='svg' src='../../images/loading.svg'></image>
+</view>
+<block wx:else>
+<!-- 用户状态 -->
+<view class='r1 mt20 ml40 w670'>
+  <image class='img-head' src="{{user.avatar}}"></image>
+  <view class='col ml40'>
+    <view class='f32 b le3 lh100'>{{user.nickname}}</view>
+    <view class='f28 b cddd lh50'>ID:{{user.id}}</view>
+  </view>
+  <navigator url="../upload/upload" hover-class='none' class='ml50 lh100 f30' wx:if="{{isAdmin==true}}">说说+</navigator>
+</view>
+<view class='line-mine mt20'></view>
+<!-- 收藏为空 -->
+<view class='cen' wx:if="{{isHasCollect==false}}">
+  <image style='margin-top:{{(system.windowHeight-240-h2-system.statusBarHeight-85)/2}}px' class='col-img' src='../../images/cat.png'></image>
+  <view style='font-family:KaiTi' class='le3 f28 cen b'>主人，这里什么都没有噢。</view>
+</view>
+<!-- 收藏列表 -->
+<include wx:else src="list.wxml" />
+</block>

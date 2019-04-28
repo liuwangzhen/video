@@ -1,0 +1,15 @@
+<view style='padding-bottom:60rpx;' class='r1 ffw'>
+  <navigator hover-class='none' url='../play/play?id={{item.id}}' wx:for="{{tables}}" wx:key="{{index}}" class='ml30 mt20'>
+    <view class='abs background'></view>
+    <view class='abs background2 mt420'></view>
+    <view class='abs cfff ml10 f28 lh80 le3 w330'>{{filter.LimitStr(item.text,8)}}</view>
+    <view class='abs lh80 cfff le2 mt420 f24 r1'>
+      <view class='ml10 mt10'>{{item.playNumber}}次播放</view>
+      <view style='left:240rpx;' class='mt10 abs'>{{filter.stohs(item.duration)}}</view>
+    </view>
+    <view class='play abs cen'>
+    </view>
+    <view style='color:#fff;font-size:60rpx;line-height:80rpx;' class='iconfont icon-bofang abs play2'></view>
+    <image mode='aspectFill' class='img-pos' src='{{item.poster}}'></image>
+  </navigator>
+</view>

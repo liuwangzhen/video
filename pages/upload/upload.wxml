@@ -1,0 +1,21 @@
+<header isPadding='true' title="上传"></header>
+<textarea maxlength='99' value='{{text}}' cursor-spacing="10" adjust-position='{{true}}' bindblur="content"  maxlength='-1' class='txt' placeholder-class='placeholder' placeholder='这一刻，想说点什么...'>
+<cover-view></cover-view>
+</textarea>
+<button bindtap='choseImg'>选择封面</button>
+<image wx:if="{{img.length>2}}" src='{{img}}'></image>
+<button bindtap='choseVideo'>选择视频</button>
+<video wx:if="{{path.length>2}}" src='{{path}}'></video>
+<radio-group class="r1 mt20 ffw" bindchange="radioChange">
+  <label class="radio f28 ml20" wx:for="{{kinds}}" wx:key="{{index}}">
+    <radio value="{{item}}" checked="{{item.checked}}" />
+    {{item}}
+  </label>
+</radio-group>
+<button bindtap='submit' class='btn mt20'>发布</button>
+
+<view style='padding-bottom:200rpx;'></view>
+<view style='top:{{height4*2+20}}px' class='mask2' wx:if='{{isMakingPoster}}'>
+  <image src='../../images/loading2.svg' style='width:68px' mode='widthFix' />
+  <view class='text-sm text-trivial'>正在提交</view>
+</view>
