@@ -1,10 +1,10 @@
 <!-- 根据滚动位置判断底部样式和是否隐藏 -->
 <view style='line-height:50px;{{bgauto}}' class='r1 checklist z9  fixed  {{scrollTop>textHeight?"action hidden":"action2"}}'>
-  <view class='ml40 r1'>
+  <!-- <view class='ml40 r1'>
     <view wx:if="{{isZan==false}}" data-id='{{content.id}}' bindtap='ifZan' style='font-size:20px;' class='iconfont icon-dianzan1'></view>
     <view wx:else data-id='{{content.id}}' bindtap='ifZan' style='color:red;font-size:24px;' class='iconfont icon-dianzan'></view>
     <view class='fp16 ml20'>点赞</view>
-  </view>
+  </view> -->
   <view class='ml40 r1'>
     <view data-id='{{content.id}}' bindtap='ifcollect' wx:if="{{isCol==false}}" style='font-size:26px;' class='iconfont icon-like-line'></view>
     <view data-id='{{content.id}}' bindtap='ifcollect' wx:else style='color:red;font-size:30px;' class='iconfont icon-xinheart118'></view>

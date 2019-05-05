@@ -1,0 +1,170 @@
+.video {
+  width: 750rpx;
+}
+button::after{
+  border: none;
+}
+.btn{
+  background: none;
+  line-height: 60rpx;
+  
+}
+/* douyin */
+.bg-bottom{
+   width: 750rpx;
+   position: fixed;
+   height: 100px;
+   bottom: 0;
+   background: linear-gradient(rgba(8, 0, 0, 0.01), rgba(0, 0, 0, 0.7));
+}
+.bg-bottom2{
+  background:linear-gradient(rgba(0,0,0,0.01),rgba(0,0,0,0.015));
+
+}
+.progress{
+  position: absolute;
+  bottom: 20px; 
+  width: 750rpx;
+}
+.w100{
+  width: 100rpx;
+}
+
+.animationTop{
+  position: fixed;
+  animation: mymovetop linear 0.2s;
+  -webkit-animation:mymovetop linear 0.2s;
+}
+/* @-webkit-keyframes mymovetop{
+  0%{
+  bottom: 0;
+  }
+  25%{
+    bottom:175px;
+  }
+  50%{
+    bottom: 350px;
+  }
+  75%{
+    bottom: 525px;
+  }
+  100%{
+   bottom: 700px;
+  }
+} */
+@keyframes mymovetop{
+  0%{
+  bottom: 0px;
+  }
+ 
+  25%{
+    bottom: 350px;
+  }
+  50%{
+    bottom: 525px;
+  }
+  100%{
+   bottom: 700px;
+  }
+}
+.animationBot{
+  position: fixed;
+  animation: mymovebot linear 0.2s;
+  -webkit-animation: mymovebot linear 0.2s;
+}
+.radius{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #000;
+  opacity: 0.8;
+}
+@keyframes mymovebot{
+ 
+  0%{
+    top:0px;
+  }
+  25%{
+    top: 350px;
+  }
+   50%{
+    top: 525px;
+  }
+  100%{
+    top:700px;
+  }
+}
+.videoTop{
+ position: fixed;
+ animation: videotop linear 0.2s;
+ -webkit-animation: videotop linear 0.2s;
+}
+@-webkit-keyframes videotop{
+  
+  0%{
+    bottom:525px;
+  }
+  /* 50%{
+    bottom: 350px;
+  }
+   75%{
+    bottom: 175px;
+  } */
+  100%{
+     bottom:0px;
+  }
+}
+@keyframes videotop{
+  0%{
+    bottom:700px;
+  }
+  25%{
+    bottom: 350px;
+  }
+   50%{
+    bottom: 175px;
+  }
+  100%{
+     bottom:0px;
+  }
+}
+.videoBot{
+  position: fixed;
+  animation: videobot linear 0.2s;
+  -webkit-animation: videobot linear 0.2s;
+} 
+/* @-webkit-keyframes videobot{
+ 0%{
+     top:700px;
+  }
+  25%{
+    top:525px;
+  }
+  50%{
+    top: 350px;
+  }
+   75%{
+    top: 175px;
+  }
+  100%{
+    top:0px;
+  }
+} */
+ @keyframes videobot{
+  0%{
+    top:700px;
+  }
+  25%{
+    top: 350px;
+  }
+   50%{
+    top: 175px;
+  }
+  100%{
+    top:0px;
+  }
+}
+.hidden{
+  /* visibility: hidden;
+  height: 0px; */
+}

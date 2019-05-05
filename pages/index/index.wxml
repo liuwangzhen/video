@@ -9,7 +9,7 @@
 </view>
 <!-- 滑动菜单 -->
 <view style='top:{{g2.height+g2.height2}}px;height:100rpx;z-index:8;' class='fixed'>
-  <scroll-view scroll-x="true" class='recommend'>
+  <!-- <scroll-view scroll-x="true" class='recommend'>
     <view  class='r1 cdc'>
       <view wx:for="{{titles}}" data-title="{{item.title}}" wx:key="{{item.id}}" data-idx='{{index}}' data-id='{{item.id}}' bindtap='change' class="col f32 mt20 {{index == 0 ? '' : 'ml50'}}">
         <view class="{{swiperIndex == index ? 'active' : 'c8a'}}">
@@ -18,7 +18,15 @@
         <view class="{{swiperIndex == index ? 'lineT' : ''}}"></view>
       </view>
     </view>
-  </scroll-view>
+  </scroll-view> -->
+  <!-- 两个分类 -->
+  <view style='justify-content:space-around;' class='r1 bgfff'>
+     <view>
+     <view class="col f32 mt20 active">推荐</view>
+     <view class="lineT"></view>
+     </view>
+     <navigator hover-class='none' url="../douyinplay/douyinplay" class='f32 mt20 c8a'>抖音</navigator>
+  </view>
   <view class='line'></view>
 </view>
 <!-- 列表 -->
@@ -44,11 +52,11 @@
         <view class='ml60 lh60 f28 abs'>{{item.collection}}</view>
         </view>
         <!-- //zan -->
-        <view style="left:240rpx;" class="abs r1">
+        <!-- <view style="left:240rpx;" class="abs r1">
           <view data-id='{{item.id}}' data-index='{{index}}' bindtap='ifZan' wx:if="{{item.isZan==true}}" style='font-size:52rpx;color:red;' class='iconfont icon-dianzan'></view>
           <view data-id='{{item.id}}' data-index='{{index}}' bindtap='ifZan' wx:else style='font-size:44rpx;margin-top:8rpx;' class='iconfont icon-dianzan1'></view>
           <view class='ml10 lh60 f28'>{{item.zan}}</view>
-        </view>
+        </view> -->
         <!-- fenxiang -->
         <button data-idx="{{index}}" data-share='{{item.share}}' data-src="{{item.poster}}" data-title="{{item.text}}" data-id="{{item.id}}" open-type='share' class='btn r1 abs r40'>
           <view style='color:#fff;font-size:50rpx;' class='iconfont icon-weixin'></view>

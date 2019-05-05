@@ -1,0 +1,51 @@
+<wxs module='filter' src='../../utils/myWxs.wxs' />
+<!-- 根据滚动的位置判断是否给顶部添加背景色 -->
+<block>
+  <header canGoIndex="true" colorO="#fff" bgone="background:none;" bgtwo="background:none;" title=""></header>
+</block>
+<!-- 视频播放 -->
+<view class='bg000'>
+  <!-- <view class='{{goTurn}}' bindtouchstart='touchstart' bindtouchend='touchend'>
+  <video controls="{{false}}"  bindtimeupdate="bindtimeupdate" id="myVideo" show-fullscreen-btn="{{false}}" enable-progress-gesture="{{false}}"  show-progress="{{false}}" bindwaiting="waiting" loop="true" autoplay='true' style='height:{{h2}}px;width:750rpx;'
+    class='video' src='{{content.video}}'></video>
+</view>
+<view class='{{video2}}'>
+  <image mode='aspectFill'  style='height:{{h2}}px;width:750rpx;' class='video' src='{{content2.poster}}'></image>
+</view> -->
+
+  <view animation="{{animationData}}" bindtouchstart='touchstart' bindtouchend='touchend'>
+    <video controls="{{false}}" bindtimeupdate="bindtimeupdate" id="myVideo" show-fullscreen-btn="{{false}}" enable-progress-gesture="{{false}}" show-progress="{{false}}" bindwaiting="waiting" loop="true" autoplay='true' style='height:{{h2}}px;width:750rpx;'
+      class='video' src='{{content.video}}'></video>
+  </view>
+  <view wx:if="{{isPlay==false}}" bindtap='Play' style='top:{{(h2-44)/2}}px;z-index:2;' class='cen fixed w100p'>
+    <view style='color:#fff;font-size:44px;margin-left:5px;margin-top:-2px;' class='iconfont icon-bofang'></view>
+  </view>
+  <view wx:if="{{isPlay==false}}" style='top:{{(h2-60)/2}}px;left:{{(w2-60)/2}}px;' class='fixed w100p radius'>
+  </view>
+
+  <view wx:if="{{video2=='hidden'}}" class='bg-bottom'>
+    <view style='bottom:100px;' class='abs r40 cfff'>
+      <view class='col w100'>
+        <view data-id='{{content.id}}' bindtap='ifcollect' wx:if="{{isCol==false}}" style='font-size:60rpx;' class='iconfont icon-like-line cen'></view>
+        <view data-id='{{content.id}}' bindtap='ifcollect' wx:else style='color:red;font-size:60rpx;' class='iconfont icon-xinheart118 cen'></view>
+        <view class='f26 cen'>{{content.collection}}</view>
+      </view>
+      <view data-id='{{content.id}}' class='col w100 mt30'>
+          <view style='font-size:18px;' class='iconfont  icon-eye cen'></view>
+          <view class='f26 cen mt20'>{{content.playNumber}}</view>
+        </view>
+      <view data-id='{{content.id}}' bindtap='delete' wx:if="{{isAdmin==true}}" class='col w100 mt30'>
+        <view style='font-size:18px;' class='iconfont icon-trash cen'></view>
+        <view class='f26 cen mt20'>删除</view>
+      </view>
+      <view class='col w100 mt30'>
+        <button open-type='share' class='btn r1'>
+          <view style='color:#fff;font-size:44rpx;' class='iconfont icon-zhuanfa cen'></view>
+        </button>
+        <view class='f26 cen mt20'>{{content.share}}</view>
+      </view>
+    </view>
+    <view class='f28 cfff mt20 ml40 w670 le3'>{{content.text}}</view>
+    <progress percent='{{percent}}' class='progress' stroke-width="1" activeColor='#fff' backgroundColor="#7b7c7b"></progress>
+  </view>
+</view>

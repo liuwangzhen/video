@@ -3,9 +3,11 @@
     "pages/index/index",
     "pages/login/login",
     "pages/login2/login2",
+    "pages/login3/login3",
     "pages/upload/upload",
     "pages/search/search",
     "pages/play/play",
+    "pages/douyinplay/douyinplay",
     "pages/mine/mine"
   ],
   "window":{

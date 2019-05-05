@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "header": "../../header/header"
+  },
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false,
+  "disableScroll": true
+}

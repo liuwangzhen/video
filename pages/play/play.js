@@ -314,6 +314,14 @@ Page({
         that.data.myCol.unshift(id);
         let myCol = that.data.myCol
         user.set('collect', myCol).update().then(res => {
+          that.setData({
+            isCol: true,
+            myCol: res.data.collect
+          })
+          wx.showToast({
+            title: '收藏成功',
+            icon:"success"
+          })
           myClass.getTableRecord('70468', id).then(
             res => {
               let apply = {
@@ -325,18 +333,12 @@ Page({
                   list.collection = res.data.collection
                   that.setData({
                     content: list,
-                    isCol:true
                   })
                 }
               )
             }
           )
           // success
-          that.setData({
-            isCol:true,
-            myCol:res.data.collect
-          })
-        console.log(res.data.collect)
         })
       }
     ).catch(
@@ -352,6 +354,13 @@ Page({
         user._attribute.collect.splice(index, 1)
         let myCol = user._attribute.collect
         user.set('collect', myCol).update().then(res => {
+          that.setData({
+            isCol: false,
+            myCol: res.data.collect
+          })
+          wx.showToast({
+            title: '已取消',
+          })
           // success
           myClass.getTableRecord('70468', id).then(
             res => {
@@ -364,15 +373,12 @@ Page({
                   list.collection = res.data.collection
                   that.setData({
                     content: list,
-                    isCol: false,
                   })
                 }
               )
             }
           )
-          that.setData({
-            myCol: res.data.collect
-          })
+          
         })
       }
     ).catch(

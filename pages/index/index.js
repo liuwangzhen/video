@@ -343,7 +343,12 @@ Page({
     )
 
   },
-
+  onHide:function(e){
+   
+  },
+  onUnload:function(e){
+     console.log('tuicu')
+  },
   /**
    * 页面上拉触底事件的处理函数
    */
