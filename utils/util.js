@@ -1,19 +1,24 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
+var http = require('http');
+var querystring = require('querystring');
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
+http.createServer(function (req, res) {
+  var body = "";
+  req.on('data', function (chunk) {
+    body += chunk;
+  });
+  req.on('end', function () {
+    // 解析参数
+    body = querystring.parse(body);
+    // 设置响应头部信息及编码
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf8' });
 
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
-module.exports = {
-  formatTime: formatTime
-}
+    if (body.name && body.url) { // 输出提交的数据
+      res.write("网站名字：" + body.name);
+      res.write("<br>");
+      res.write("网站 URL：" + body.url);
+    } else {  // 输出表单
+      res.write(postHTML);
+    }
+    res.end();
+  });
+}).listen(3000);

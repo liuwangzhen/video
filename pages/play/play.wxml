@@ -1,7 +1,7 @@
 <wxs module='filter' src='../../utils/myWxs.wxs' />
 <!-- 根据滚动的位置判断是否给顶部添加背景色 -->
 <block wx:if="{{scrollTop<h2-50}}">
-  <header canGoIndex="true" colorO="#fff" bgtwo="background:none;" isPaddingTwo="true" title="侠"></header>
+  <header canGoIndex="true" colorO="#fff" bgtwo="background:none;" isPaddingTwo="true" title=""></header>
 </block>
 <block wx:else>
   <header canGoIndex="true" colorO="#fff" isPaddingTwo="true" title="侠"></header>
