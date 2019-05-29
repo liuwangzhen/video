@@ -1,4 +1,4 @@
-//app.js
+﻿//app.js 这是一个分支管理
 App({
   onLaunch: function () {
     let sys = wx.getSystemInfoSync()
