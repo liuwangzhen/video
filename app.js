@@ -1,4 +1,4 @@
-//app.js
+﻿
 App({
   onLaunch: function () {
     let sys = wx.getSystemInfoSync()
